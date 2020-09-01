@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.net.URL?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          fx:controller="com.udermy.course.controller.AppController">
+
+    <stylesheets>
+        <URL value="@stylesheet.css"></URL>
+    </stylesheets>
+
+    <padding><Insets top = "25" right="25" bottom="10" left="25"></Insets></padding>
+
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="5">
+        <Button text="Add User" onAction="#addUser"></Button>
+    </HBox>
+
+    <Label style="-fx-font: NORMAL 20 Tachoma" text="Add User to Database"
+    GridPane.columnIndex="0" GridPane.rowIndex="0"
+    GridPane.columnSpan="2"></Label>
+
+    <Label text = "First Name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="firstname" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text = "Last Name" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="lastname" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text = "Username" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="username" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text = "password" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="pass" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+
+    <Label style="-fx-font: NORMAL 20 Tachoma" text = "Registered User Data" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="2"></Label>
+
+    <TableView fx:id = "tableview" GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <columns>
+            <TableColumn text="id">
+                <cellValueFactory><PropertyValueFactory property="userid"></PropertyValueFactory> </cellValueFactory>
+            </TableColumn>
+            <TableColumn text = "FirstName">
+                <cellValueFactory><PropertyValueFactory property="firstname"></PropertyValueFactory></cellValueFactory>
+            </TableColumn>
+            <TableColumn text = "LastName">
+                <cellValueFactory><PropertyValueFactory property="lastname"></PropertyValueFactory></cellValueFactory>
+            </TableColumn>
+            <TableColumn text = "Username">
+                <cellValueFactory><PropertyValueFactory property="username"></PropertyValueFactory></cellValueFactory>
+            </TableColumn>
+            <TableColumn text = "Password"  >
+                <cellValueFactory><PropertyValueFactory property="pass"></PropertyValueFactory></cellValueFactory>
+            </TableColumn>
+        </columns>
+        <items>
+            <FXCollections fx:factory="observableArrayList"/>
+        </items>
+    </TableView>
+
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <Button text="Fetch User" onAction="#fetchUser"/>
+    </HBox>
+
+
+</GridPane>
